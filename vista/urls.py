@@ -22,4 +22,7 @@ from vista import views
 
 urlpatterns = [
     path("", views.index, name="index"),
+    
+    # por cada pagina tenemos una nueva ruta
+    path("producto", views.producto, name="producto")
 ]
