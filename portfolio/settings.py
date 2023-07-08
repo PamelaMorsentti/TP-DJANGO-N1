@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     # apps de terceros
     
     # apps propias
-    "vista",
+    "vista.apps.VistaConfig",
 ]
 
 MIDDLEWARE = [

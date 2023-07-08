@@ -10,7 +10,8 @@ class Categoria(models.Model):
         return '%s' % self.nombre
 
 class Producto(models.Model):
-    """ 
+    
+    # vamos a agregar una tupla para el listado de opciones
     Borrador = "Borrador"
     Publicado = "Publicado"
     Retirado = "Retirado"
@@ -19,28 +20,31 @@ class Producto(models.Model):
         (Publicado, "Publicado"),
         (Retirado, "Retirado"),
     )
-    estado = models.CharField(max_length=10, choices=APROBACION_PRODUCTO, default="Borrador")
+    estado = models.CharField(max_length=10, choices=APROBAION_PRODUCTO, default="Borrador")
     
     producto = models.CharField(max_length=200)
     fecha_publicacion=models.DateTimeField("fecha de publicacion")
     imagen = models.ImageField(upload_to="producto/%Y/%m/%d", blank=True, null=True)
     #categoria = models.ManyToManyField(Categoria)
-    categoria=models.ForeingKey(
+    categoria=models.ForeignKey(
         Categoria, blank=False, null=True, on_delete=models.CASCADE
     )
     
     def tipo_de_producto(self): # metodo de instancia que puede trabajar con los atributos de instancia, aplica la logica encerrada en la funcion
         if self.estado== "Retirado":
-            return format_html("<span style="color: #f00;">{}</span>", self.estado,)
+            return format_html("<span style='color: #f00;'>{}</span>", self.estado,)
         elif self.estado == "Borrador":
-            return format_html("<span style="background-color: #f0f; padding:7px;">{}</span>", self.estado,)
+            return format_html("<span style='background-color: #f0f; padding:7px;'>{}</span>", self.estado,)
         elif self.estado == "Publicado":
-            return format_html("<span style="color: #099;">{}</span>", self.estado,)
+            return format_html("<span style='color: #099;'>{}</span>", self.estado,)
             
     def __str__(self,):
         return self.producto + " --> " + str(self.fecha_publicacion)    
-    """
     
+    def upper_case_name(self):
+        return ("%s %s" % (self.producto, self.estado)).upper()
+        
+    """
     producto = models.CharField(max_length=200)
     fecha_publicacion = models.DateTimeField('Fecha de publicación')
     imagen = models.ImageField(upload_to="producto/%Y/%m/%d", blank=True, null=True)
@@ -48,3 +52,4 @@ class Producto(models.Model):
     
     def __str__(self,):
         return self.producto + " --> " + str(self.fecha_publicacion)
+    """
