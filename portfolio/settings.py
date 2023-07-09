@@ -33,17 +33,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
+    'registration', #should be immediately above 'django.contrib.admin'
     # apps por defecto 
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
+    "django.contrib.staticfiles", 
     # apps de terceros
     
     # apps propias
     "vista.apps.VistaConfig",
+    "usuarios.apps.UsuariosConfig",
 ]
 
 MIDDLEWARE = [
@@ -132,3 +135,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_REDIRECT_URL = '/'  # en el ejemplo pone /vista, pero en ese caso debo cambiar las rutas en todos los archivos... para despues
+LOGIN_URL = 'django.contrib.auth.views.login'
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
