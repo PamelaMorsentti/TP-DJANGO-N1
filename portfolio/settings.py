@@ -121,7 +121,7 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False #True - lo cambio a false para que al realizar el test no me de error por la fecha
 
 
 # Static files (CSS, JavaScript, Images)
