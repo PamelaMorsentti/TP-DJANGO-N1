@@ -1,0 +1,29 @@
+<!-- con esto permitimos que nuestras paginas estaticas se carguen en desarrollo -->
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+  <head>
+    <!-- Titulo -->
+    <title>{% block title%}{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock %}</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="keywords" content="{{ palabras_claves }}" />
+    <meta name="description" content="{{ descripcion }}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.ces' %}"/>
+  </head>
+
+  <body>
+    <h1>HOLA {{ nombre_sitio }} </h1>
+    <h2> Bienvenidos </h2>
+    <h3> Sitio Ingenieria </h3>
+
+    <div> div 1 </div>
+    <div> div 2 </div>
+    <div> div 3 </div>
+  </body>
+
+</html>
+

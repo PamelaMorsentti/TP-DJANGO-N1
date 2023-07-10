@@ -17,13 +17,15 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static # con esto permitimos que nuestras paginas estaticas se carguen en desarrollo
 
 urlpatterns = [
-    path("", include("vista.urls")), # si quiero aca es donde tengo que agregar /vista
+    path("vista/", include("vista.urls")), # si quiero aca es donde tengo que agregar /vista
     path('accounts/', include('registration.backends.default.urls')), # rutas a los html de registro
     path("admin/", admin.site.urls),
     path("usuarios/", include("usuarios.urls")), # a la app de usuarios
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # con esto permitimos que nuestras paginas estaticas se carguen en desarrollo
+
 
 if settings.DEBUG:
     import debug_toolbar

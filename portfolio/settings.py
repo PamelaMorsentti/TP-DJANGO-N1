@@ -121,12 +121,13 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_TZ = False #True - lo cambio a false para que al realizar el test no me de error por la fecha
+USE_TZ = False # True - lo cambio a false para que al realizar el test no me de error por la fecha
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# con esto permitimos que nuestras paginas estaticas se carguen en desarrollo
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static_dev"),)
@@ -138,7 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = '/'  # en el ejemplo pone /vista, pero en ese caso debo cambiar las rutas en todos los archivos... para despues
+LOGIN_REDIRECT_URL = '/vista'  # en el ejemplo pone /vista, pero en ese caso debo cambiar las rutas en todos los archivos... para despues
 LOGIN_URL = 'django.contrib.auth.views.login'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True

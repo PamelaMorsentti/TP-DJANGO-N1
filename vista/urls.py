@@ -21,8 +21,12 @@ from vista import views
 """ urls secundario """
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("index", views.index, name="index"),
     
     # por cada pagina tenemos una nueva ruta
-    path("producto", views.producto, name="producto")
+    path("producto", views.producto, name="producto"),
+    
+    # en views debe existir una fundion llamada pruebafuncion va a ser la que se encargue de traer la pagina, me redirija
+    path("mi_prueba_ruta", views.pruebafuncion, name="ruta_prueba"),
+
 ]

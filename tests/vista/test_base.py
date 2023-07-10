@@ -30,4 +30,5 @@ def test_crear_producto():
 def test_cambiar_estado(producto): # este test esta alimentado por el fixture crear_producto
     print(producto.estado)
     print(producto.producto)
+    print(producto.fecha_publicacion)
     assert producto.estado == "Borrador"
