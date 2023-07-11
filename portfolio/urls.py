@@ -24,6 +24,7 @@ urlpatterns = [
     path('accounts/', include('registration.backends.default.urls')), # rutas a los html de registro
     path("admin/", admin.site.urls),
     path("usuarios/", include("usuarios.urls")), # a la app de usuarios
+    path("ing/", include("ing.urls")) # a la app especifica para usuarios registrados
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # con esto permitimos que nuestras paginas estaticas se carguen en desarrollo
 
 

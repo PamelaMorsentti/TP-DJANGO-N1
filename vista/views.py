@@ -11,9 +11,9 @@ def index(request):
 def index(request):
     params = {}
     params ["nombre_sitio"] = "Portfolio Cabral Ingenieria"
-    #producto = Producto.objects.filter( Q(estado="Publicado"),)
-    #params["producto"] = producto
-    #print(producto)
+    producto = Producto.objects.filter( Q(estado="Borrador"),) # vamos a generar una variable que apunte al listado de elementos del Producto, object, filtrados por el estado Publicado
+    params["producto"] = producto
+    print(producto)
     return render(request, "vista/index.html", params)
 
 # por cada nueva pagina debe haber alguien que administre lo que va a haber en esa pagina
@@ -27,4 +27,8 @@ def producto(request):
 def pruebafuncion(request):
     params = {}
     params ["nombre_sitio"] = "Portfolio Cabral Ingenieria"
+    producto = Producto.objects.filter( Q(estado="Borrador"),) # vamos a generar una variable que apunte al listado de elementos del Producto, object, filtrados por el estado Publicado
+    params["producto"] = producto
+    print(producto)
+    
     return render(request, "vista/prueba.html", params)

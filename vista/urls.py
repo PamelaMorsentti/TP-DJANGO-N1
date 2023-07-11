@@ -21,7 +21,7 @@ from vista import views
 """ urls secundario """
 
 urlpatterns = [
-    path("index", views.index, name="index"),
+    path("index", views.index, name="index"), # ruta a la funcion que levanta nuestra pagina
     
     # por cada pagina tenemos una nueva ruta
     path("producto", views.producto, name="producto"),
