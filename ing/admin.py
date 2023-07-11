@@ -11,7 +11,7 @@ class ServicioInLine(admin.TabularInline):
 class CategoriaAdmin(admin.ModelAdmin):
     inlines=[ServicioInLine]
 
-@admin.register(models.Servicio) # asocia la clase ServiciooAdmin a la clase Servicio del modelo
+@admin.register(Servicio) # asocia la clase ServiciooAdmin a la clase Servicio del modelo
 class ServicioAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Relacion", {"fields":["categoria"]}),
@@ -22,9 +22,9 @@ class ServicioAdmin(admin.ModelAdmin):
     search_fields = ("servicio", "fecha_inicio",)
     list_display_links = ("servicio", "fecha_inicio",)
    
-@admin.display(description="Servicio")
-def upper_case_name(self, obj): 
-    return("%s %s" %(obj.servicio, obj.estado)).upper()
- 
+    @admin.display(description="Servicio")
+    def upper_case_name(self, obj): 
+        return("%s %s" %(obj.servicio, obj.estado)).upper()
+    
 admin.site.register(CategoriaServicio, CategoriaAdmin)
  
